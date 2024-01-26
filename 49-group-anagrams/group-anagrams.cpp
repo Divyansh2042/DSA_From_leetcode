@@ -5,8 +5,8 @@ public:
         vector<vector<string>>ans;
         for(auto x:strs){
             string temp=x;
-            sort(x.begin(),x.end());
-            umap[x].push_back(temp);
+            sort(temp.begin(),temp.end());
+            umap[temp].push_back(x);
         }
         for(auto x:umap){
             ans.push_back(x.second);    

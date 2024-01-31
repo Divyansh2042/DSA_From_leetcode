@@ -11,6 +11,7 @@ public:
     //    }
     //    return max1;
     //Optimal Appraoch
+    ios_base::sync_with_stdio(0); cin.tie(0);
     int max1=0,area;;
     int left=0,right=height.size()-1;
     while(left<right){

@@ -4,13 +4,13 @@ public:
         int n=arr.size();
         vector<int>dp(n+1,0);
         for(int i=0;i<n;i++){
-            int currMax=0,currSum=0;
+            int curMax=0,curSum=0;
             for(int j=i;j>=max(0,i-k+1);j--){
-                currMax=max(currMax,arr[j]);
-                int cur=currMax*(i-j+1)+dp[j];
-                currSum=max(currSum,cur);
+                curMax=max(curMax,arr[j]);
+                int cur=curMax*(i-j+1)+dp[j];
+                curSum=max(curSum,cur);
             }
-            dp[i+1]=currSum;
+            dp[i+1]=curSum;
         }
         return dp[n];
     }

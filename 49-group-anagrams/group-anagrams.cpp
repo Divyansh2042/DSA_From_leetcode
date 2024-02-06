@@ -8,8 +8,8 @@ public:
             sort(temp.begin(),temp.end());
             umap[temp].push_back(x);
         }
-        for(auto x:umap){
-            ans.push_back(x.second);    
+        for(auto str:umap){
+            ans.push_back(str.second);
         }
         return ans;
     }

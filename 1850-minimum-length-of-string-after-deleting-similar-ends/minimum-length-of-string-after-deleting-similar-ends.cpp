@@ -1,19 +1,17 @@
 class Solution {
 public:
     int minimumLength(string s) {
-        string pre="",suf="";
-        int n=s.size();
-        int i=0;
-        int j=n-1;
-        while(i<j && s[i]==s[j]){
-           char ch=s[i];
-           while(i<=j && s[i]==ch){
-               i++;
-           }
-           while(j>=i && s[j]==ch){
-               j--;
-           }
+        int n=s.size()-1;
+        int left=0,right=n;
+        while(left<right && s[left]==s[right]){
+            char ch=s[left];
+            while(left<=right && s[left]==ch){
+                left++;
+            }
+            while(right>=left && s[right]==ch){
+                right--;
+            }
         }
-        return (j-i+1);
+        return (right-left+1);
     }
 };

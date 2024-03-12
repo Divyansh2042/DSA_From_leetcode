@@ -12,21 +12,18 @@ class Solution {
 public:
     ListNode* removeZeroSumSublists(ListNode* head) {
         ListNode* front=new ListNode(0,head);
-        ListNode* current=front;
-        int prefixSum=0;
-        unordered_map<int,ListNode*>prefixSumToNode;
-        prefixSumToNode[0]=front;
-        while(current!=NULL){
-            prefixSum+=current->val;
-            prefixSumToNode[prefixSum]=current;
-            current=current->next;
-        }
-        prefixSum=0;
-        current=front;
-        while(current!=nullptr){
-            prefixSum+=current->val;
-            current->next=prefixSumToNode[prefixSum]->next;
-            current=current->next;
+        ListNode* start=front;
+        while(start!=nullptr){
+            ListNode* end=start->next;
+            int prefixSum=0;
+            while(end!=nullptr){
+                prefixSum+=end->val;
+                if(prefixSum==0){
+                    start->next=end->next;
+                }
+                end=end->next;
+            }
+            start=start->next;
         }
         return front->next;
     }

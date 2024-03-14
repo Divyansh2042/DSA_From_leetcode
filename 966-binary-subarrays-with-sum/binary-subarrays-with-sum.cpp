@@ -7,9 +7,7 @@ public:
         prefixSumMap[0]=1;
         for(auto num:nums){
             prefixSum+=num;
-            if(prefixSumMap.find(prefixSum-goal)!=prefixSumMap.end()){
-                prefixSumCount+=prefixSumMap[prefixSum-goal];
-            }
+            prefixSumCount+=prefixSumMap[prefixSum-goal];
             prefixSumMap[prefixSum]++;
         }
         return prefixSumCount;

@@ -1,1 +1,1 @@
-<h2>minimum-number-of-arrows-to-burst-balloons Notes</h2><hr>[ Time taken: 29 m 34 s ]
+<h2>minimum-number-of-arrows-to-burst-balloons Notes</h2><hr>[ Time taken: 6 m 54 s ]

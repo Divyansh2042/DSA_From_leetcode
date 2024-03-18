@@ -1,21 +1,26 @@
 class Solution {
 public:
-    void helper(vector<string>&v,int ob,int cb,int n,string s){
-        if(ob==n&&cb==n){
-            v.push_back(s);
-            return;
-        }
-        if(ob<n){
-            helper(v,ob+1,cb,n,s+"(");
-        }
-        if(cb<ob){
-            helper(v,ob,cb+1,n,s+")");
-        }
+    void generate(vector<string>&ans,int ob,int cb,int n,string s)
+    {
+         if(ob==n&&cb==n){
+            ans.push_back(s);
+         }
+         if(ob<n){
+            generate(ans,ob+1,cb,n,s+"(");
+         }
+         if(cb<ob){
+            generate(ans,ob,cb+1,n,s+")");
+         }
     }
     vector<string> generateParenthesis(int n) {
-        string s="";
+        //3 steps to check 
+        //1- opening bracket must be less than n
+        //2-closing bracket must be less than opening bracket
+        //3- if opening bracket and closing bracket is equal than it is inserted in ans
         vector<string>ans;
-        helper(ans,0,0,n,s);
+        string s;
+        int ob=0,cb=0;
+        generate(ans,ob,cb,n,s);
         return ans;
     }
 };

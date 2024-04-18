@@ -1,17 +1,22 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        int start=0;
-        int end=s.size()-1;
-        while(start<=end){
-            if(!isalnum(s[start])){start++;continue;}
-            if(!isalnum(s[end])){end--;continue;}
-            if(tolower(s[start])!=tolower(s[end]))return false;
-            else{
-                start++;
-                end--;
+        vector<char>v;
+        for(int i=0;i<s.length();i++){
+            if(s[i]>='a'&& s[i]<='z'){
+                v.push_back(s[i]);
+            }else if(s[i]>='A' && s[i]<='Z'){
+                v.push_back(s[i]-'A'+'a');
+            }else if(s[i]>='0'&& s[i]<='9'){
+                v.push_back(s[i]);
             }
         }
-         return true;   
+        int n=v.size();
+        for(int i=0;i<n/2;i++){
+            if(v[i]!=v[n-i-1]){
+                return false;
+            }
+        }
+        return true;
     }
 };

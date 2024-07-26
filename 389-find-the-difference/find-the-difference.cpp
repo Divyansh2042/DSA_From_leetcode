@@ -1,9 +1,16 @@
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-     for(int i=0;i<t.size()-1;i++){
-        t[i+1]+=t[i]-s[i];
-     }
-     return t[t.size()-1];
+    vector<int>v(26,0);
+    for(int i=0;i<t.length();i++){
+        v[t[i]-'a']++;
+    }
+    for(int i=0;i<s.length();i++){
+        v[s[i]-'a']--;
+    }
+    for(int i=0;i<v.size();i++){
+        if(v[i]==1)return i+'a';
+    }
+    return 0;
     }
 };
